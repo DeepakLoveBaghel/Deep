@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>For My Love 💖</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f3f3f3;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .login-box {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      width: 300px;
+      text-align: center;
+    }
+    input {
+      width: 90%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    button {
+      padding: 10px 20px;
+      border: none;
+      background-color: #007bff;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .message {
+      margin-top: 15px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-box">
+    <h2>Login</h2>
+    <input type="text" id="username" placeholder="Username" />
+    <input type="password" id="password" placeholder="Password" />
+    <button onclick="login()">Login</button>
+    <div class="message" id="message"></div>
+  </div>
+  
+
+  <!-- <script>
+    function login() {
+      const username = document.getElementById("username").value;
+      const password = document.getElementById("password").value;
+      const messageBox = document.getElementById("message");
+
+      if (username === "Deep" && password === "123") {
+        <a href="ht.html">Click me</a>
+        messageBox.style.color = "green";
+        messageBox.innerText = "Login successful!";
+        
+      } else {
+        messageBox.style.color = "red";
+        messageBox.innerText = "Invalid username or password.";
+      }
+    }
+  </script> -->
+  <script>
+    function login() {
+      const username = document.getElementById("username").value;
+      const password = document.getElementById("password").value;
+      const messageBox = document.getElementById("message");
+  
+      if (username === "Pankti" && password === "04june2004") {
+        messageBox.style.color = "green";
+        messageBox.innerHTML = 'Login successful! <br><a href="love.html">Click here to continue</a>';
+      } else {
+        messageBox.style.color = "red";
+        messageBox.innerText = "Invalid username or password.";
+      }
+    }
+  </script>
+  
+  
+</body>
+</html>
