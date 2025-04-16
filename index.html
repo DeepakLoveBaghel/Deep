@@ -2,73 +2,194 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>For My Love 💖</title>
+  <title>Deepti</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+    }
+
     body {
-      font-family: Arial, sans-serif;
-      background: #f3f3f3;
+      height: 100vh;
+      background: linear-gradient(135deg, #667eea, #764ba2);
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
+      overflow: hidden;
     }
-    .login-box {
-      background: white;
-      padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      width: 300px;
+
+    .container {
+      position: relative;
+      width: 360px;
+      padding: 40px 30px;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(12px);
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.3);
       text-align: center;
+      color: #fff;
+      animation: fadeInUp 1s ease-in-out;
     }
-    input {
-      width: 90%;
-      padding: 10px;
-      margin: 10px 0;
-      border-radius: 5px;
-      border: 1px solid #ccc;
+
+    .container::before {
+      content: '';
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      background: #fff;
+      border-radius: 50%;
+      top: -40px;
+      right: -40px;
+      opacity: 0.05;
+      z-index: 0;
     }
-    button {
-      padding: 10px 20px;
+
+    h2 {
+      font-size: 32px;
+      font-weight: 600;
+      margin-bottom: 25px;
+      position: relative;
+      z-index: 1;
+      animation: popIn 1.2s ease-in-out;
+      color: #ffffff;
+      text-shadow: 0 0 10px rgba(255,255,255,0.5);
+    }
+
+    .input-box {
+      position: relative;
+      margin: 20px 0;
+      text-align: left;
+    }
+
+    .input-box input {
+      width: 100%;
+      padding: 12px 10px;
+      background: rgba(255, 255, 255, 0.15);
       border: none;
-      background-color: #007bff;
-      color: white;
-      border-radius: 5px;
-      cursor: pointer;
+      border-radius: 10px;
+      outline: none;
+      color: #fff;
+      font-size: 16px;
     }
+
+    .input-box label {
+      position: absolute;
+      left: 12px;
+      top: 12px;
+      pointer-events: none;
+      color: #ccc;
+      transition: 0.3s ease;
+    }
+
+    .input-box input:focus + label,
+    .input-box input:not(:placeholder-shown) + label {
+      top: -10px;
+      font-size: 12px;
+      color: #fff;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 0 5px;
+      border-radius: 4px;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      margin-top: 20px;
+      border: none;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #ffffff, #e0e0ff);
+      color: #764ba2;
+      font-weight: bold;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s;
+      box-shadow: 0 0 10px rgba(255,255,255,0.2);
+    }
+
+    button:hover {
+      background: linear-gradient(135deg, #e0e0ff, #ffffff);
+      transform: scale(1.02);
+    }
+
     .message {
       margin-top: 15px;
-      font-weight: bold;
+      font-weight: 500;
+    }
+
+    .success {
+      color: #c0ffc0;
+    }
+
+    .error {
+      color: #ffc0c0;
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes popIn {
+      0% {
+        opacity: 0;
+        transform: scale(0.8);
+      }
+      60% {
+        opacity: 1;
+        transform: scale(1.05);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    .glow {
+      animation: glowPulse 2s infinite ease-in-out;
+    }
+
+    @keyframes glowPulse {
+      0% {
+        text-shadow: 0 0 10px #fff;
+      }
+      50% {
+        text-shadow: 0 0 20px #fff, 0 0 30px #fff;
+      }
+      100% {
+        text-shadow: 0 0 10px #fff;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="login-box">
-    <h2>Login</h2>
-    <input type="text" id="username" placeholder="Username" />
-    <input type="password" id="password" placeholder="Password" />
+
+  <div class="container">
+    <h2 class="glow">Wel Come</h2>
+    <div class="input-box">
+      <input type="text" id="username" required placeholder=" " />
+      <label for="username">Username</label>
+    </div>
+    <div class="input-box">
+      <input type="password" id="password" required placeholder=" " />
+      <label for="password">Password</label>
+    </div>
     <button onclick="login()">Login</button>
-    <div class="message" id="message"></div>
+    <div id="message" class="message"></div>
   </div>
-  
 
-  <!-- <script>
-    function login() {
-      const username = document.getElementById("username").value;
-      const password = document.getElementById("password").value;
-      const messageBox = document.getElementById("message");
-
-      if (username === "Deep" && password === "123") {
-        <a href="ht.html">Click me</a>
-        messageBox.style.color = "green";
-        messageBox.innerText = "Login successful!";
-        
-      } else {
-        messageBox.style.color = "red";
-        messageBox.innerText = "Invalid username or password.";
-      }
-    }
-  </script> -->
   <script>
+   
     function login() {
       const username = document.getElementById("username").value;
       const password = document.getElementById("password").value;
@@ -76,14 +197,13 @@
   
       if (username === "Deepti" && password === "04june2004") {
         messageBox.style.color = "green";
-        messageBox.innerHTML = 'Login successful! <br><a href="love.html">Click here to continue</a>';
+        messageBox.innerHTML = '✅ Login successful!<br><a href="love.html">Click here to continue</a>';
       } else {
         messageBox.style.color = "red";
-        messageBox.innerText = "Invalid username or password.";
+        messageBox.innerText = "❌ Invalid username or password!";
       }
     }
   </script>
-  
-  
+
 </body>
 </html>
